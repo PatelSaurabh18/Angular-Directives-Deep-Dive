@@ -20,6 +20,7 @@ export class SafeLinkDirective{
     onConfirmLeavePage(event :MouseEvent){
         const wantsToLeave  = window.confirm('Do you want to leave the app?');
         if(wantsToLeave){
+            //  const address = (event.target as HTMLAnchorElement).href; // old way of doing unsafe, reason explained in Notes
             const address = this.hostElementRef.nativeElement.href;
             this.hostElementRef.nativeElement.href = address + "?from="+ this.queryParam();
             return;
